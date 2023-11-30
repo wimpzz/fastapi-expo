@@ -21,11 +21,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-model_path = "./saved_models/plants"
+model_path = "./model_keras/plants"
 
-# Load the model
 MODEL = tf.keras.models.load_model(model_path)
-#CLASS_NAMES = ['Cadang_Cadang', 'Caterpillars', 'Coconut_Bud_Rot', 'Coconut_Leaf_Spot', 'Coconut_Scale_Insect', 'Drying_of_Leaflets', 'Normal_Coconut', 'Yellowing']
 CLASS_NAMES = ['Aloe Vera',
                 'Basil',
                 'Cabbage Succulent',
@@ -43,7 +41,7 @@ class PredictionResult(BaseModel):
 
 @app.get("/")
 def root():
-    return {"Welcome Message": "Hello World!!"}
+    return {"Welcome": "Hello World!!"}
 
 @app.get("/test")
 def ping():
